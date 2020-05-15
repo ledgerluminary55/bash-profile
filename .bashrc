@@ -127,6 +127,9 @@ fi
 alias edit='code -g'
 alias open='wslview' 
 
+# Include dotfiles in '*'
+shopt -s dotglob nullglob
+
 export PATH=$PATH:~/bin
 
 alias gg='git grep -i -n'
