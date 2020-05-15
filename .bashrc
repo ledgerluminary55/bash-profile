@@ -137,6 +137,11 @@ function git-destroy-local-changes-and-pull(){
     git reset --hard origin/{$REMOTE_BRANCH}
 }
 
+function docker-destroy-containers(){
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+}
+
 export DISABLE_OPENCOLLECTIVE=true
 export OPEN_SOURCE_CONTRIBUTOR=true
 
