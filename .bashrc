@@ -145,7 +145,25 @@ function docker-destroy-containers(){
     docker rm $(docker ps -a -q)
 }
 
+function docker-destroy-selleck-containers(){
+    SELLECK_CONTAINERS="$(docker ps -a | grep 'selleck_server_run' | awk '{print $1}')"
+    docker stop $SELLECK_CONTAINERS
+    docker rm $SELLECK_CONTAINERS
+}
+
 export DISABLE_OPENCOLLECTIVE=true
 export OPEN_SOURCE_CONTRIBUTOR=true
+
+function i(){
+    sudo apt install $*
+}
+
+function fuck-concourse(){
+    git commit --allow-empty -m "Concourse CI is a terrible piece of software"
+}
+
+# Two space tabs
+tabs 2
+
 
 cd ~/Code
